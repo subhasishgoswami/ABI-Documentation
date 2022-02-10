@@ -1,7 +1,7 @@
 import json
- 
+import sys
 # Opening JSON file
-f = open('dualrewards.json')
+f = open(sys.argv[1])
 d= open('documentation.md', 'a')
 # returns JSON object as
 # a dictionary
@@ -10,7 +10,6 @@ data = json.load(f)
 # Iterating through the json
 # list
 for i in data['abi']:
-    print(i['name'])
     d.write('\n# '+ i['name']+ '\n\n')
     if 'type' in i:
         d.write('`Type: '+ i['type'] + '` ')
